@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Internet2 Higher Education Cloud Forum: Path to Cloud Center of Excellence</title>
+
+  <link href="//assets.iu.edu/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/iu.css" id="theme">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="nofooter">
+        <img src="img/iu-logo-top-tail.svg"
+          style="position: absolute; left: 0; top: 0; width: 10%; background: inherit; border: 0; box-shadow: none;" />
+        <h3
+          style="margin-top: 5%; margin-bottom: 2.5em; margin-left: 13%; text-align: left; font-size: 1.25em; text-transform: uppercase;">
+          Starting in the Cloud to Change the Data Center<br />
+          <small style="color: #666;">Using Diffusion of Innovation to Modernize Enterprise IT</small>
+        </h3>
+        <div style="float: left; text-align: left; color: #666">
+          <strong>James Bennett</strong><br />
+          <small>Enterprise Platforms, Indiana University</small>
+        </div>
+        <!-- <div style="float: right; font-size: .8em;">
+          <a href="https://go.iu.edu/8tb2">go.iu.edu/8tb2</a>
+        </div> -->
+      </section>
+      <section class="nofooter" data-background-image="img/questions.jpg" data-background-size="cover"
+        data-background-position="right">
+        <h3 class="textbox">
+          Questions?
+        </h3>
+        <!-- <small style="color: #efefef; font-weight: 400;">go.iu.edu/8tb2</small><br />
+        <img src="img/qr-code.png" style="width: 10%;" /> -->
+      </section>
+      <div id="footer" class="footer" style="display: none;">
+        <img src="img/iu-logo.svg" />
+        <span style="text-align: left; width: 15em; margin-top: 1%;">Internet2 Higher Ed Cloud Forum</span>
+      </div>
+      <div id="image-credit" style="display: none;"></div>
+    </div>
+  </div>
+  <div id="background" style="display: none;"></div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="dist/highlight.js"></script>
+  <!-- <script src="plugin/notes/notes.js"></script> -->
+  <!-- <script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script> -->
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      navigationMode: 'linear',
+      history: false,
+      controls: false,
+      progress: true,
+      overview: true,
+      plugins: [RevealHighlight],
+    });
+    Reveal.addEventListener('slidechanged', function (event) {
+      var suppressFooter = event.currentSlide.classList.contains('nofooter');
+      var hasBackgroundImage = event.currentSlide.attributes.getNamedItem('data-background-image') !== null || event.currentSlide.attributes.getNamedItem('data-background-video') !== null;
+      if (suppressFooter || hasBackgroundImage) {
+        document.getElementById('footer').style.display = 'none';
+      } else {
+        document.getElementById('footer').style.display = 'flex';
+      }
+
+      var suppressBackground = !event.currentSlide.classList.contains('has-background');
+      if (suppressBackground || hasBackgroundImage) {
+        document.getElementById('background').style.display = 'none';
+      } else {
+        document.getElementById('background').style.display = 'block';
+      }
+
+      var showImageCredit = event.currentSlide.classList.contains('has-image-credit');
+      if (showImageCredit) {
+        document.getElementById('image-credit').innerHTML = event.currentSlide.getElementsByClassName('image-credit')[0].innerHTML;
+        document.getElementById('image-credit').style.display = 'block';
+      } else {
+        document.getElementById('image-credit').innerHTML = null;
+        document.getElementById('image-credit').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>
